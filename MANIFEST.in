@@ -1,0 +1,5 @@
+graft tests
+include *.rst
+include *.ini
+include LICENSE.txt
+global-exclude *~ *.py[cdo]
