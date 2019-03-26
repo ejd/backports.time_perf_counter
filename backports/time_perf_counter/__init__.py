@@ -14,8 +14,9 @@ except AttributeError:          # Python < 3.3
 
     if sys.platform.startswith('win32'):
         import ctypes
-        from ctypes.windll import kernel32
         import ctypes.util
+
+        kernel32 = ctypes.windll.kernel32
 
         QueryPerformanceFrequency = kernel32.QueryPerformanceFrequency
         QueryPerformanceCounter = kernel32.QueryPerformanceCounter
@@ -34,7 +35,7 @@ except AttributeError:          # Python < 3.3
             QueryPerformanceCounter(outref)
             return (out.value - _win_perf_counter.t0) / _win_perf_counter.freq
 
-        _win_perf_counter.frequency = None
+        _win_perf_counter.freq = None
 
     def perf_counter():
         """
