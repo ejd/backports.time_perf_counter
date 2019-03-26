@@ -35,7 +35,7 @@ except AttributeError:          # Python < 3.3
             QueryPerformanceCounter(outref)
             return (out.value - _win_perf_counter.t0) / _win_perf_counter.freq
 
-        _win_perf_counter.frequency = None
+        _win_perf_counter.freq = None
 
     def perf_counter():
         """
