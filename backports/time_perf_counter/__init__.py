@@ -14,8 +14,9 @@ except AttributeError:          # Python < 3.3
 
     if sys.platform.startswith('win32'):
         import ctypes
-        from ctypes.windll import kernel32
         import ctypes.util
+
+        kernel32 = ctypes.windll.kernel32
 
         QueryPerformanceFrequency = kernel32.QueryPerformanceFrequency
         QueryPerformanceCounter = kernel32.QueryPerformanceCounter
